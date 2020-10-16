@@ -53,7 +53,8 @@ public class Awal extends javax.swing.JFrame {
     static private String DataColumnX[] = new String[200];        
     String fileInput;    
     private int Temp;
-    DecimalFormat df = new DecimalFormat("#.##");
+    DecimalFormat cf = new DecimalFormat("#.######");
+    DecimalFormat df = new DecimalFormat("#.#");
     
     /**
      * Creates new form Awal
@@ -298,40 +299,10 @@ public class Awal extends javax.swing.JFrame {
         }                  
     }
     private void Mape(){
-        int Temp_3 = 0;
-        for(int i = 0;i<modelData.getRowCount();i++){
-            Object[] o = new Object[modelData.getRowCount()+1];
-            for(int j=0;j<modelData.getColumnCount();j++){                
-                if(j==1){
-                    if(Temp_3 != Double.parseDouble(modelData.getValueAt(i, j).toString())){ //erorr
-                   Temp_3 = (int) Double.parseDouble(modelData.getValueAt(i, j).toString()); 
-                   jPilihtahunMAPE.addItem(modelData.getValueAt(i, j).toString());                        
-                  }
-                    o[j] = modelData.getValueAt(i, j).toString();
-                }
-                else{
-                    o[j] = modelData.getValueAt(i, j).toString();
-                }
-            }            
-        }
+       
     }
     private void DataMape(){
-    String value = jPilihtahunMAPE.getSelectedItem().toString();
-        modelMape.setRowCount(0);
-        for(int i = 0;i<modelData.getRowCount();i++){            
-                Object[] o = new Object[modelData.getRowCount()+1];
-               
-                if(modelData.getValueAt(i, 1).toString().equalsIgnoreCase(jPilihtahunMAPE.getSelectedItem().toString())){
-                    for(int j=0;j<modelData.getColumnCount();j++){                    
-                            if(j!=3 && j!=0){
-                                o[j] = modelData.getValueAt(i, 4).toString();                            
-                            }else if(j==0){
-                                o[j] = modelData.getValueAt(i, j).toString();                            
-                            }
-                    }                        
-                    modelMape.addRow(o);            
-                }
-         } 
+ 
     }
     
     
@@ -340,7 +311,8 @@ public class Awal extends javax.swing.JFrame {
         Double SumHitung = 0.0;
         Double FinalHitung;
         Double Denormal;
-        Double Mape;        
+        Double Mape;    
+        
         for(int i = 0;i<modelPermintaanDenormal.getColumnCount();i++){//                                            
             for(int j=0;j<modelPermintaanDenormal.getRowCount();j++){    
                 Denormal = Double.parseDouble((modelPermintaanDenormal.getValueAt(j, 0).toString()));                                                
@@ -350,7 +322,7 @@ public class Awal extends javax.swing.JFrame {
             }            
             }
         FinalHitung = (SumHitung/modelPermintaanDenormal.getRowCount())*100;
-        jHasilMape.setText(df.format(FinalHitung));
+        jHasilMape.setText(cf.format(FinalHitung));
         FinalHitung = (FinalHitung*10)/100;                
         jPersentaseMape.setText(df.format(FinalHitung));
         
@@ -694,7 +666,6 @@ public class Awal extends javax.swing.JFrame {
         jPermintaanNormalisasi = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jPilihtahunMAPE = new javax.swing.JComboBox<>();
         TombolMAPEImportBNT2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -906,20 +877,13 @@ public class Awal extends javax.swing.JFrame {
         jLabel13.setText("DATA NORMALISASI");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, -1, -1));
 
-        jPilihtahunMAPE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPilihtahunMAPEActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jPilihtahunMAPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 80, -1));
-
-        TombolMAPEImportBNT2.setText("Tombol Mape");
+        TombolMAPEImportBNT2.setText("Import Data Mape");
         TombolMAPEImportBNT2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TombolMAPEImportBNT2ActionPerformed(evt);
             }
         });
-        jPanel1.add(TombolMAPEImportBNT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 100, -1));
+        jPanel1.add(TombolMAPEImportBNT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, 120, -1));
 
         jPanel3.setBackground(new java.awt.Color(51, 255, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
@@ -1003,7 +967,7 @@ public class Awal extends javax.swing.JFrame {
         InitTableUjiData();
         InitTablePermintaanNormal();
         InitTablePermintaanDenormal();
-        InitTableMape();
+        
         TampilData();
         Mape();
     }//GEN-LAST:event_ImportBTNActionPerformed
@@ -1013,20 +977,37 @@ public class Awal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPilihtahunActionPerformed
 
     private void TombolMAPEImportBNT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TombolMAPEImportBNT2ActionPerformed
+       JFileChooser fileopen = new JFileChooser();
+        FileFilter filter = new FileNameExtensionFilter("c files", "c");
+        fileopen.addChoosableFileFilter(filter);
+
+        int ret = fileopen.showDialog(null, "Open file");
+
+        if (ret == JFileChooser.APPROVE_OPTION) {
+            File file = fileopen.getSelectedFile();
+            Awal test2 = new Awal();
+            setInputFile(file.toString());
+            try {
+                ReadFile();
+            } catch (IOException | BiffException ex) {
+                System.out.println(ex);
+            }
+        }
+        InitTableMape();
         DataMape();
     }//GEN-LAST:event_TombolMAPEImportBNT2ActionPerformed
-
-    private void jPilihtahunMAPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPilihtahunMAPEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPilihtahunMAPEActionPerformed
     
     private void Reset(){
-        modelPermintaanDenormal.setRowCount(0);
-        modelData.setRowCount(0);
-        modelHitung.setRowCount(0);        
+        
+        modelMape.setRowCount(0);
         jHasilMape.setText("");
+        jPersentaseMape.setText("");
+        modelPermintaanDenormal.setRowCount(0);       
+        modelPermintaanNormal.setRowCount(0);
+        modelUjiData.setRowCount(0);
         jPilihtahun.removeAllItems();
-       
+        modelTernormalisasi.setRowCount(0);
+        modelData.setRowCount(0); 
     }
     
     /**
@@ -1089,7 +1070,6 @@ public class Awal extends javax.swing.JFrame {
     private javax.swing.JTable jPermintaanNormalisasi;
     private javax.swing.JTextField jPersentaseMape;
     private javax.swing.JComboBox<String> jPilihtahun;
-    private javax.swing.JComboBox<String> jPilihtahunMAPE;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
