@@ -2865,3 +2865,265 @@ INSERT INTO FUZZY values(NULL ,1 ,26563.074) [21002-175]
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+10-17 04:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:17:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:17:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:17:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:17:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:17:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+DROP TABLE Fuzzy [42102-175]
+10-17 04:17:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:17:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:17:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+DROP TABLE Fuzzy [42102-175]
+10-17 04:25:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:25:20 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:25:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+DROP TABLE Fuzzy [42102-175]
+10-17 04:26:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:26:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:27:03 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+SELECT * FROM Fuzzy [42102-175]
+10-17 04:27:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "FUZZY" not found; SQL statement:
+DROP TABLE Fuzzy [42102-175]
+10-17 05:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MAPE" not found; SQL statement:
+SELECT * FROM Mape [42102-175]
+10-17 05:47:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MAPE" not found; SQL statement:
+SELECT * FROM Mape [42102-175]
+10-17 05:48:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MAPE" not found; SQL statement:
+DROP TABLE Mape [42102-175]
+10-17 05:48:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Duplicate column name "PERMINTAAN"; SQL statement:
+ALTER TABLE Fuzzy ADD Permintaan DOUBLE(200) [42121-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.table.Table.setColumns(Table.java:394)
+	at org.h2.table.TableBase.<init>(TableBase.java:44)
+	at org.h2.table.RegularTable.<init>(RegularTable.java:75)
+	at org.h2.schema.Schema.createTable(Schema.java:586)
+	at org.h2.command.ddl.AlterTableAlterColumn.cloneTableStructure(AlterTableAlterColumn.java:311)
+	at org.h2.command.ddl.AlterTableAlterColumn.copyData(AlterTableAlterColumn.java:220)
+	at org.h2.command.ddl.AlterTableAlterColumn.update(AlterTableAlterColumn.java:156)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:113)
+	at fuzzytsukamoto.Awal.ReadFile_Mape(Awal.java:155)
+	at fuzzytsukamoto.Awal.TombolMAPEImportBNT2ActionPerformed(Awal.java:1079)
+	at fuzzytsukamoto.Awal.access$1100(Awal.java:35)
+	at fuzzytsukamoto.Awal$12.actionPerformed(Awal.java:971)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2237)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2295)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4889)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4526)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4467)
+	at java.awt.Container.dispatchEventImpl(Container.java:2281)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+10-17 05:48:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column count does not match; SQL statement:
+INSERT INTO Mape values(NULL ,5) [21002-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.message.DbException.get(DbException.java:138)
+	at org.h2.command.dml.Insert.prepare(Insert.java:266)
+	at org.h2.command.Parser.prepareCommand(Parser.java:240)
+	at org.h2.engine.Session.prepareLocal(Session.java:436)
+	at org.h2.engine.Session.prepareCommand(Session.java:379)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:124)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:113)
+	at fuzzytsukamoto.Awal.ReadFile_Mape(Awal.java:184)
+	at fuzzytsukamoto.Awal.TombolMAPEImportBNT2ActionPerformed(Awal.java:1079)
+	at fuzzytsukamoto.Awal.access$1100(Awal.java:35)
+	at fuzzytsukamoto.Awal$12.actionPerformed(Awal.java:971)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2237)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2295)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4889)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4526)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4467)
+	at java.awt.Container.dispatchEventImpl(Container.java:2281)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+10-17 05:50:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Invalid value "3" for parameter "columnIndex" [90008-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:218)
+	at org.h2.jdbc.JdbcResultSetMetaData.checkColumnIndex(JdbcResultSetMetaData.java:448)
+	at org.h2.jdbc.JdbcResultSetMetaData.getColumnName(JdbcResultSetMetaData.java:86)
+	at fuzzytsukamoto.Awal.TampilMape(Awal.java:351)
+	at fuzzytsukamoto.Awal.TombolMAPEImportBNT2ActionPerformed(Awal.java:1085)
+	at fuzzytsukamoto.Awal.access$1100(Awal.java:35)
+	at fuzzytsukamoto.Awal$12.actionPerformed(Awal.java:971)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2237)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2295)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4889)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4526)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4467)
+	at java.awt.Container.dispatchEventImpl(Container.java:2281)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+10-17 05:51:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Invalid value "3" for parameter "columnIndex" [90008-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:218)
+	at org.h2.jdbc.JdbcResultSetMetaData.checkColumnIndex(JdbcResultSetMetaData.java:448)
+	at org.h2.jdbc.JdbcResultSetMetaData.getColumnName(JdbcResultSetMetaData.java:86)
+	at fuzzytsukamoto.Awal.TampilMape(Awal.java:351)
+	at fuzzytsukamoto.Awal.TombolMAPEImportBNT2ActionPerformed(Awal.java:1085)
+	at fuzzytsukamoto.Awal.access$1100(Awal.java:35)
+	at fuzzytsukamoto.Awal$12.actionPerformed(Awal.java:971)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2237)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2295)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4889)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4526)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4467)
+	at java.awt.Container.dispatchEventImpl(Container.java:2281)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)

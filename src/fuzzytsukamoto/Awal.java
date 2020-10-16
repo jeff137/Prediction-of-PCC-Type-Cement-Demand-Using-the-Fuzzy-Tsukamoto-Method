@@ -79,6 +79,17 @@ public class Awal extends javax.swing.JFrame {
         }
     }
     
+    private boolean DropTableMape(){        
+        try {            
+            String sql2 = "DROP TABLE Mape";
+            stt = con.createStatement();
+            stt.executeUpdate(sql2);
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    
     private int CountCol(){
             try {
             String sql2 = "SELECT * FROM Fuzzy";
@@ -115,6 +126,67 @@ public class Awal extends javax.swing.JFrame {
     
     public void setInputFile(String fileInputX) {
         fileInput = fileInputX;
+    }
+    
+    public void ReadFile_Mape() throws IOException, BiffException  {        
+        DropTableMape();
+        File fileExcel = new File(fileInput);
+        Workbook w;
+        String kolom;                
+        w = Workbook.getWorkbook(fileExcel);        
+        // Ambil sheet pertama, nomer 0 menandakan sheet ke 1
+        Sheet sheet = w.getSheet(0);
+        CountColumn = sheet.getColumns(); 
+        for (int j = 0; j < sheet.getColumns(); j++){                        
+            Cell cell = sheet.getCell(j,0);                        
+            DataColumnX[j] = cell.getContents();                        
+            
+        }        
+         try{             
+                String sql2 = "CREATE TABLE Mape(id INT AUTO_INCREMENT PRIMARY KEY)";                            
+                stt = con.createStatement();
+                stt.executeUpdate(sql2);
+                for(int j = 0; j < sheet.getColumns(); j++){
+                        Cell cell = sheet.getCell(j,0);
+                        if(!cell.getContents().equalsIgnoreCase("tahun")){                            
+                            sql2 = "ALTER TABLE Mape ADD "+cell.getContents()+" DOUBLE(200)";
+                            stt = con.createStatement();
+                            stt.executeUpdate(sql2);
+                        }else{
+                            sql2 = "ALTER TABLE Mape ADD "+cell.getContents()+" INT";
+                            stt = con.createStatement();
+                            stt.executeUpdate(sql2);
+                        }
+                    }                                                    
+           }catch(SQLException e){
+               System.out.println("error here : 101");
+                System.out.println(e);                                
+        }        
+        try{            
+            for(int i = 1; i < sheet.getRows(); i++){
+                
+                String sql2 = "INSERT INTO Mape values(NULL";            
+                for(int j = 0; j < sheet.getColumns(); j++){
+                        Cell cell = sheet.getCell(j,i);
+                        if(j==0){
+                            if(cell.getContents().equalsIgnoreCase("")){  
+                                sql2 = sql2+" ,"+Temp+"";
+                            }else{
+                                sql2 = sql2+" ,"+cell.getContents()+"";
+                                Temp = Integer.parseInt(cell.getContents());
+                            }                                                            
+                    }else{
+                            sql2 = sql2+" ,"+cell.getContents()+"";          
+                    }            
+                }
+                    sql2 = sql2+")";
+                    stt = con.createStatement();
+                    stt.executeUpdate(sql2);
+            }            
+        }catch(SQLException e){
+            System.out.println("error here : 202");
+            System.out.println(e);
+        }
     }
     
     public void ReadFile() throws IOException, BiffException  {        
@@ -267,7 +339,23 @@ public class Awal extends javax.swing.JFrame {
         }
     }
     
-     
+    private void TampilMape(){
+                try{
+            String sql = "SELECT * FROM Mape";
+            stt = con.createStatement();
+            rss = stt.executeQuery(sql);
+            rssd = rss.getMetaData();
+            while(rss.next()){            
+               Object[] o = new Object[rssd.getColumnCount()];                
+               for(int i=1;i<=rssd.getColumnCount();i++){
+               o[i-1] = rss.getString(rssd.getColumnName(i));               
+               }                
+               modelMape.addRow(o);
+            }     
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    } 
     
     private void Normalisasi(){
         
@@ -988,13 +1076,13 @@ public class Awal extends javax.swing.JFrame {
             Awal test2 = new Awal();
             setInputFile(file.toString());
             try {
-                ReadFile();
+                ReadFile_Mape();
             } catch (IOException | BiffException ex) {
                 System.out.println(ex);
             }
         }
         InitTableMape();
-        DataMape();
+        TampilMape();
     }//GEN-LAST:event_TombolMAPEImportBNT2ActionPerformed
     
     private void Reset(){
